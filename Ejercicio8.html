@@ -1,0 +1,116 @@
+
+  
+  <!DOCTYPE html>
+  <html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Carrusel de Imágenes</title>
+    <style>
+      body {
+          font-family: Arial, sans-serif;
+          text-align: center;
+          background-color: #f0f0f0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+          margin: 0;
+      }
+  
+      .carousel {
+          background-color: #fff;
+          border: 1px solid #ccc;
+          box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+          overflow: hidden;
+          position: relative;
+      }
+  
+      .carousel-content {
+          display: flex;
+          width: 300%; /* Un ancho del 300% para acomodar las tres imágenes */
+          transition: transform 0.5s ease-in-out;
+      }
+  
+      .carousel-slide {
+          width: 33.33%; /* Ancho del 33.33% para cada imagen */
+          object-fit: cover;
+      }
+  
+      .carousel-slide img {
+          width: 100%;
+          height: 100%;
+      }
+  
+      .carousel-btn {
+          background-color: #333;
+          color: #fff;
+          font-size: 16px;
+          border: none;
+          padding: 10px 20px;
+          cursor: pointer;
+          position: absolute;
+          bottom: 10px;
+      }
+  
+      #prevBtn {
+          left: 10px;
+      }
+  
+      #nextBtn {
+          right: 10px;
+      }
+  
+  
+    </style>
+  </head>
+  
+  <body>
+      <div class="carousel">
+          <div class="carousel-content">
+            <div class="carousel-slide">
+              <img  src="https://1.bp.blogspot.com/-ur_mJcStlis/VAc2aa3bbSI/AAAAAAACTYI/gCf_p25rvKI/s1600/paisajes%2Bnaturales%2B-%2Bnaturaleza%2B-%2Bnatural%2Bfree%2Blandscapes%2B-%2Bfotos%2Bde%2Bpaisajes.jpg" alt="Imagen 1">
+            </div>
+            <div class="carousel-slide">
+              <img  src="https://th.bing.com/th/id/OIP._BWWP9KBTpSNYfmoo5xBXgHaEW?pid=ImgDet&w=989&h=581&rs=1" alt="Imagen 2">
+            </div>
+            <div class="carousel-slide">
+              <img  src="https://th.bing.com/th/id/R.2d0fa29f0d2673a14a394ab144088da7?rik=z8ashmpb9mxTsw&riu=http%3a%2f%2fmegalindas.com%2fwp-content%2fuploads%2f2015%2f05%2farmonia.jpg&ehk=i677PM9kE0xVBmTWgx2IF1JLhBg%2bq%2bgWkaDP1Wu2%2fwQ%3d&risl=&pid=ImgRaw&r=0" alt="Imagen 3">
+            </div>
+          </div>
+        <button id="prevBtn" class="carousel-btn">Anterior</button>
+        <button id="nextBtn" class="carousel-btn">Siguiente</button>
+      </div>
+    <script>
+      const prevBtn = document.getElementById('prevBtn');
+      const nextBtn = document.getElementById('nextBtn');
+      const carouselContent = document.querySelector('.carousel-content');
+      const slides = document.querySelectorAll('.carousel-slide');
+      let currentSlide = 0;
+  
+      function updateCarousel() {
+          const offset = currentSlide * (100 / slides.length);
+          carouselContent.style.transform = `translateX(-${offset}%)`;
+      }
+  
+      prevBtn.addEventListener('click', () => {
+          if (currentSlide > 0) {
+              currentSlide--;
+              updateCarousel();
+          }
+      });
+  
+      nextBtn.addEventListener('click', () => {
+          if (currentSlide < slides.length - 1) {
+              currentSlide++;
+              updateCarousel();
+          }
+      });
+  
+      updateCarousel();
+  
+    </script>
+  </body>
+  
+  </html>

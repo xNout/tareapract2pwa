@@ -1,0 +1,49 @@
+<!--
+  Hit RUN to see this project in action!
+  
+  This project will auto-refresh as you edit the HTML, CSS and JS. See README.md for more info (including how to disable auto-refresh and install packages).
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Ejercicio 1</title>
+  <style>
+    #imagenContainer {
+      text-align: center;
+    }
+
+    #imagen {
+      width: 300px;
+      height: 200px;
+      transition: transform 0.3s;
+    }
+
+    #imagen:hover {
+      transform: scale(1.1); /* Aplica un efecto de escala al pasar el ratón sobre la imagen */
+    }
+  </style>
+</head>
+
+<body>
+  <div id="imagenContainer">
+    <img id="imagen" src="https://th.bing.com/th/id/OIP.MuG-3tRU3PKMiqOngG0qkwHaE8?pid=ImgDet&rs=1" alt="Imagen 1">
+  </div>
+  <script>
+    const imagen = document.getElementById("imagen");
+
+    imagen.addEventListener("mouseover", function() {
+      imagen.src = "https://th.bing.com/th/id/OIP.g-PL4DfnqrNc60hkYFyegQHaD9?pid=ImgDet&w=1024&h=547&rs=1"; // Cambia la imagen cuando pasas el ratón sobre ella
+    });
+
+    imagen.addEventListener("mouseout", function() {
+      imagen.src = "https://th.bing.com/th/id/OIP.MuG-3tRU3PKMiqOngG0qkwHaE8?pid=ImgDet&rs=1"; // Restaura la imagen original cuando el ratón sale de la imagen
+    });
+
+  </script>
+</body>
+
+</html>

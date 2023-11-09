@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Ejercicio 1</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      text-align: center;
+    }
+
+    h1 {
+      margin-top: 20px;
+    }
+
+    #task-list {
+      max-width: 300px;
+      margin: 0 auto;
+      background-color: white;
+      padding: 20px;
+      border-radius: 4px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      background-color: #fff;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .task-text {
+      flex-grow: 1;
+    }
+
+    .delete-button {
+      background-color: #FF4136;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    #new-task {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      margin-bottom: 10px;
+      box-sizing: border-box; /* Añadido para que el padding no aumente el ancho total */
+    }
+
+    #add-button {
+      background-color: #0074D9;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 4px;
+      cursor: pointer;
+      width: 100%; /* Añadido para que el botón ocupe todo el ancho */
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Lista de Tareas</h1>
+  <div id="task-list">
+    <input type="text" id="new-task" placeholder="Nueva tarea">
+    <button id="add-button" onclick="addTask()">Agregar</button>
+    <ul id="tasks">
+    </ul>
+  </div>
+  <script>
+    function addTask() {
+      const newTaskInput = document.getElementById("new-task");
+      const taskText = newTaskInput.value.trim();
+
+      if (taskText !== "") {
+        const tasksList = document.getElementById("tasks");
+        const taskItem = document.createElement("li");
+        taskItem.innerHTML = `
+          <span class="task-text">${taskText}</span>
+          <button class="delete-button" onclick="deleteTask(this)">Eliminar</button>
+        `;
+        tasksList.appendChild(taskItem);
+
+        newTaskInput.value = "";
+      }
+    }
+
+    function deleteTask(button) {
+      const taskItem = button.parentElement;
+      const tasksList = document.getElementById("tasks");
+      tasksList.removeChild(taskItem);
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<!--
+  Hit RUN to see this project in action!
+  
+  This project will auto-refresh as you edit the HTML, CSS and JS. See README.md for more info (including how to disable auto-refresh and install packages).
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Ejercicio 1</title>
+  <style>
+    #elementoCambiante {
+      width: 200px;
+      height: 200px;
+      background-color: #3498db;
+      color: #fff;
+      text-align: center;
+      line-height: 200px;
+      font-size: 20px;
+      border-radius: 10px;
+      transition: background-color 0.5s;
+    }
+
+  </style>
+</head>
+
+<body>
+  
+  <button id="cambiarColor">Cambiar Color de Fondo</button>
+  <div id="elementoCambiante">Elemento que cambiará de color</div>
+  <script>
+    // Obtenemos una referencia al botón y al elemento que queremos cambiar
+    const botonCambio = document.getElementById("cambiarColor");
+    const elementoCambiante = document.getElementById("elementoCambiante");
+
+    // Función para cambiar el color de fondo
+    function cambiarColorDeFondo() {
+      // Generamos un color aleatorio en formato hexadecimal
+      const nuevoColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+
+      // Cambiamos el color de fondo del elemento
+      elementoCambiante.style.backgroundColor = nuevoColor;
+    }
+
+    // Agregamos un evento de clic al botón
+    botonCambio.addEventListener("click", cambiarColorDeFondo);
+
+  </script>
+</body>
+
+</html>
